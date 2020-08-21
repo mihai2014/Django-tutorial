@@ -1,0 +1,12 @@
+{% for object in object_list %} 
+   
+  {{ object.title }}<br/> 
+  {{ object.description }}<br/> 
+  <hr/> 
+
+  <!-- If objet_list is empty  -->
+  {% empty %} 
+  No objects yet. 
+
+{% endfor %} 
+

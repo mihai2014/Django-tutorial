@@ -1,0 +1,12 @@
+{% for data in dataset %} 
+  
+  {{ data.title }}<br/> 
+  {{ data.description }}<br/> 
+  <hr/> 
+
+  <!-- If dataset is empty  -->
+  {% empty %}
+  <li>No objects yet.</li> 
+
+{% endfor %} 
+  
