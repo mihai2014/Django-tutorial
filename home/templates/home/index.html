@@ -1,12 +1,11 @@
-<html>
- <head>
-  <title>Main index</title>
- </head>
- <body>
+{% extends 'home/base.html' %}
+
+{% block content %}
+
    <h2>Main index</h2>
+   <p><a href="/accounts/">Built-in user authentication system</a></p>
    <p><a href="/generic-views/">Generic views</a></p>
    <p><a href="/generic-views/index-generic/">Generic view(same)</a></p>
 
- </body>
-</html>
+{% endblock %}
 

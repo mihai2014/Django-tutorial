@@ -1,7 +1,7 @@
-<html>
-<head>
-</head>
-<body>
+{% extends 'home/base.html' %}
+
+{% block content %}
+
   <p><a href="/generic-views/my-view/">my_view(functional)</a></p>
   <p><a href="/generic-views/my-view-generic/">my_view_generic</a></p>
   <h1>Create view</h1>
@@ -20,6 +20,5 @@
   <h1>Delete views</h1>
   <p><a href="/generic-views/delete/1">delete_view(functional)</a></p>
   <p><a href="/generic-views/delete-generic/1">delete_view(generic)</a></p>
-</body>
-</html>
 
+{% endblock %}

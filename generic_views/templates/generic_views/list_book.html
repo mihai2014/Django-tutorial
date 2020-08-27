@@ -1,3 +1,7 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+
 {% for data in dataset %} 
   
   {{ data.title }}<br/> 
@@ -9,4 +13,5 @@
   <li>No objects yet.</li> 
 
 {% endfor %} 
-  
+
+{% endblock %}

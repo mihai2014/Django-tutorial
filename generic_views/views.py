@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, HttpResponseRedirect
 from django.http import HttpResponse
 from django.urls import reverse
+from django.urls import reverse_lazy
 
 from django.views import View
 from django.views.generic import TemplateView
@@ -150,6 +151,7 @@ class BookUpdate(UpdateView):
 
     def get_success_url(self):
         #title = self.request.POST['title']
+        #return reverse_lazy()
         #return reverse('geeks:detail', kwargs={
         #'pk': self.object.pk,})
         return f"/generic-views/detail-book-generic/{self.object.pk}"

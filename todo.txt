@@ -1,0 +1,25 @@
+links
+
+https://www.geeksforgeeks.org/class-based-generic-views-django-create-retrieve-update-delete/
+
+https://learndjango.com/tutorials/django-login-and-logout-tutorial
+
+
+explic auth system
+auth views:
+
+accounts/login/ [name='login']
+accounts/logout/ [name='logout']
+accounts/password_change/ [name='password_change']
+accounts/password_change/done/ [name='password_change_done']
+accounts/password_reset/ [name='password_reset']
+accounts/password_reset/done/ [name='password_reset_done']
+accounts/reset/<uidb64>/<token>/ [name='password_reset_confirm']
+accounts/reset/done/ [name='password_reset_complete']
+
+The Django auth app provided us with built-in url and views for login and logout. All we needed to do was add a template for login. But to create a sign up page we will need to make our own view and url. Let's begin!
+
+layout mai ca lumea
+la generic views list/detail cu slug si cu id
+selectie cu dropdown list la list detail
+where is sent_emails ?
