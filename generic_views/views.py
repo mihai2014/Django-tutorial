@@ -44,7 +44,7 @@ def create_book(request):
     #aditional context data, if needed
     context['success'] = "True"
 
-    return render(request, "generic-views/create_book.html", context)
+    return render(request, "generic_views/create_book.html", context)
 
 #default template: geeks/templates/geeks/books_form.html
 class CreateBook(CreateView):
