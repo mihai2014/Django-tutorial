@@ -18,7 +18,8 @@ urlpatterns = [
     path('list-book/',views.list_book, name="list-book"),
     path('list-book-generic/', views.BookList.as_view(), name="list-book-generic"),    
 
-    path('detail-book/<int:id>/', views.detail_book, name="detail-book" ),
+    path('detail-book-id/<int:id>/', views.detail_book_id, name="detail-book-id" ),
+    path('detail-book-slug/<slug:slug>/', views.detail_book_slug, name="detail-book-slug" ),
     path('detail-book-generic/<int:pk>/', views.BooksDetail.as_view(), name="detail-book-generic"),
 
     path('update/<int:id>/', views.update_book, name="update"),

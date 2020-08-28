@@ -5,7 +5,9 @@
 {% for object in object_list %} 
    
   {{ object.title }}<br/> 
-  {{ object.description }}<br/> 
+  {{ object.description }}<br/>
+  <a href="{{ object.get_absolute_url1 }}">item - link1</a><br/>
+  <a href="{{ object.get_absolute_url2 }}">item - link2</a><br/>
   <hr/> 
 
   <!-- If objet_list is empty  -->

@@ -10,10 +10,10 @@ class Books(models.Model):
         return self.title
 
     def get_absolute_url1(self):
-        return f"record_details_id/{self.id}/"
+        return f"/generic-views/detail-book-id/{self.id}/"
 
     def get_absolute_url2(self):
-        return f"/record_details_slug/{self.slug}/"
+        return f"/generic-views/detail-book-slug/{self.slug}/"
 
 
 # see /home/mihai/all/data/work2020/django/dj_test/geeks/models.py :

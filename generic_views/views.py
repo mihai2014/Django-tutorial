@@ -99,12 +99,17 @@ class BookList(ListView):
 
 
 # pass id attribute from urls
-def detail_book(request, id):
+def detail_book_id(request, id):
     context ={}
 
     # add the dictionary during initialization
     context["data"] = Books.objects.get(id = id)
 
+    return render(request, "generic_views/detail_view.html", context)
+
+def detail_book_slug(request, slug):
+    context ={}
+    context["data"] = Books.objects.get(slug = slug)
     return render(request, "generic_views/detail_view.html", context)
 
 #default template: geeks/templates/geeks/books_detail.html
