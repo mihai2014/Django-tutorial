@@ -1,0 +1,11 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Subject: test
+From: django@mihaicorciu.ro
+To: admin@example.com
+Date: Tue, 29 Sep 2020 14:51:37 -0000
+Message-ID: <160139109703.9798.14442426848012070570@localhost.localdomain>
+
+hello
+-------------------------------------------------------------------------------

@@ -1,16 +1,33 @@
-<!-- templates/base.html -->
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
+  <link href="{% static 'home/css/style.css' %}" rel="stylesheet">
   <title>{% block title %}Django Tutorial{% endblock %}</title>
 </head>
 <body>
-  <main>
 
+  <header>
+    {% if user.is_authenticated %}
+      Hi {{ user.username }}!
+      <a href="{% url 'logout' %}">logout</a>
+    {% else %}
+      You are not logged in
+      <a href="{% url 'login' %}">login</a>
+    {% endif %}	  
+  </header>
+
+  <main>
     {% block content %}
     {% endblock %}
-
   </main>
+
+  <!--
+  <footer>
+  </footer>	
+  -->
+
 </body>
 </html>

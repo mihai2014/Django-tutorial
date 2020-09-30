@@ -27,10 +27,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
+    'sendemail.apps.SendemailConfig',    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'generic_views.apps.GenericViewsConfig',
     'auth1.apps.Auth1Config',
+    'chat.apps.ChatConfig',
 ]
 
 MIDDLEWARE = [
@@ -58,7 +59,7 @@ ROOT_URLCONF = 'django_tutorial.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'auth1/templates/auth1/')],
+        'DIRS': [os.path.join(BASE_DIR, 'auth1/templates/auth1/'),os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,6 +82,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        #'TEST': {                                              #for async
+        #    'NAME': os.path.join(BASE_DIR, 'db_test.sqlite3')
+        #}        
     }
 }
 
@@ -123,8 +127,22 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOGIN_REDIRECT_URL = '/accounts/'
+LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/accounts/'
 
+#testing email send
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
+
+
+DEFAULT_FROM_EMAIL = 'will@learndjango.com'
+#production email
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#EMAIL_HOST = 'smtp.sendgrid.net' 
+#EMAIL_HOST_USER = 'user'
+#EMAIL_HOST_PASSWORD = 'password'
+#EMAIL_PORT = 465 
+##EMAIL_USE_TLS = True 
+#EMAIL_USE_SSL = True
+

@@ -1,0 +1,102 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+
+<style>
+#display {
+  height: 400px; 
+  width: 400px; 
+  border: 1px solid black; 
+  display: inline-block;	
+  overflow: auto;
+}
+.response {
+  color: green;
+}
+.error {
+  color: red;	
+}
+.my_message {
+  color: blue;	
+}	
+</style>
+
+<div class="form-group"><p>Your id:{{ id }}</p></div>
+<div class="form-group"><p>Your name:{{ name }}</p></div>
+<div class="form-group"><p>Your pair:{{ pair }}</p></div>
+
+<br>
+
+<div class="form-group"><label for="display">Display:</label></div>
+<div class="form-group"><div id="display"></div></div>
+<!--<div class="form-group"><textarea id="display" rows="10" cols="50"></textarea></div>-->
+<br>
+<div class="form-group"><label for="message">Your message:</label></div>
+<div class="form-group"><textarea id="message" rows="2" cols="50"></textarea></div>
+<br>
+<button id="send" type="button">Send</button> 
+<br>
+
+<div id="info1"></div> 
+
+<script type="text/javascript">
+
+function scrollToBottom (id) {
+   var div = document.getElementById(id);
+   div.scrollTop = div.scrollHeight - div.clientHeight;
+}
+
+function message1(msg,type){
+    display.innerHTML = display.innerHTML + "<p class='"+ type + "'>" + msg +"</p>";    
+}
+
+
+var display = document.getElementById("display");
+var msg = document.getElementById("message");
+var send = document.getElementById("send");
+
+send.onclick = function(){
+    message1(msg.value,"my_message");	
+    msg.value = "";
+    scrollToBottom ("display");	
+}	
+
+
+function getXHR(){
+    var xhr = false;
+    if (window.XMLHttpRequest) {
+        xhr = new XMLHttpRequest();
+    } else { //code for IE6, IE5
+        xhr = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    return xhr;
+}
+
+
+xhr1 = getXHR();
+if(!xhr1) message1("Ajax is not supported by your browser!");
+
+xhr1.onload = function() {
+    if (xhr1.status === 200){
+        message1(xhr1.responseText,"response");
+    }
+    else{
+        message1("Error " + xhr1.status, "error");
+    }
+}
+
+xhr1.onerror = function() {
+    message1("Error: No response from server.", "error");
+}
+
+var url = "/chat/get_message";
+var params = "?id={{ id }}";
+
+setInterval(function(){ 
+	xhr1.open('GET', url+params);
+	xhr1.send(null); 
+	scrollToBottom ("display");
+}, 2000);
+</script>
+
+{% endblock %}

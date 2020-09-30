@@ -1,0 +1,36 @@
+{% extends 'home/base.html' %}
+{% load get_item %}
+
+
+{% block content %}
+
+    <h2>Your id: {{ id }}</h2>
+
+    Disponible users for connections:
+    <ul>
+    {% for id in users %}
+    <li>{{id}} - {{ users|get_item:id }}</li>
+    {% endfor %}    
+    </ul>
+
+    <form action="/set_user/" method="post">
+	{% csrf_token %}
+
+	<label for="your_name">Your name:</label>
+	<input id="your_name" type="text" name="your_name"><br>
+
+        <label for="users">Choose user to connect:</label>
+
+        <select name="users" id="user_id">
+            {% for key, value in users.items %}
+                <option value={{ key }}>{{ value }}</option>
+            {% endfor %}
+        </select>
+
+        <br>
+        <input type="submit" value="OK">
+    </form>
+
+
+{% endblock %}
+

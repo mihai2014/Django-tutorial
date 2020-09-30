@@ -1,3 +1,16 @@
+chat:
+
+server set id, user choose name
+
+client:
+1. POST id, pair, message (void if not)
+2. GET id message - setinterval
+3. stiva de mesaje 
+  destination_id
+  message
+
+------------------------------------------------------------
+
 links
 
 https://www.geeksforgeeks.org/class-based-generic-views-django-create-retrieve-update-delete/

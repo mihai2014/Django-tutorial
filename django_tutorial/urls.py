@@ -25,4 +25,6 @@ urlpatterns = [
 
     path('', include('home.urls')),
     path('generic-views/', include('generic_views.urls')),
+    path('chat/', include('chat.urls')),
+    path('sendemail/', include('sendemail.urls')),
 ]

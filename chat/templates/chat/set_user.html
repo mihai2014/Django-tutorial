@@ -1,0 +1,10 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+
+<form action="/chat/talk/">
+{{ form.as_p }}
+<input type="submit" value="Connect">
+</form>
+
+{% endblock %}
